@@ -18,6 +18,7 @@ TIP = (
 def main() -> None:
     tip = TIP.strip()
     assert 1 <= len(tip) <= 200, f"tip must be 1-200 chars, got {len(tip)}"
+    assert "\n" not in tip, "tip must be a single line for a loading screen"
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
         f.write(tip)
